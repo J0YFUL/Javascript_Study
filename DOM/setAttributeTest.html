@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 500px;
+            height: 500px;
+            border: 3px solid black;
+        }
+
+        .box1 {
+            background: orange;
+        }
+        .box2 {
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" onclick="changeColor()"></div>
+    <input type="button" id="btn" value="- 카운트 확인하기 -" onclick="getCount()">
+    <input type="number" id="result" value="">
+    <input type="button" id="btnR" value="색제거" onclick="removeAttr()">
+    
+    <script>
+        var clickCount = 0;
+        function changeColor() {
+            var box = document.getElementById('box');
+            clickCount++;
+            if(clickCount % 2 == 0) {
+                box.setAttribute('class','box1');
+            } else {
+                box.setAttribute('class','box2');
+            }
+        }
+
+        function getCount() {
+            var value = document.getElementById('result');
+            value.setAttribute('value',clickCount);
+        }
+        
+        function removeAttr() {
+            var box = document.getElementById('box');
+            box.removeAttribute('class');
+            // 여기에 clickCount도 초기화 하면 좋을 듯.
+        }
+    </script>
+</body>
+</html>
