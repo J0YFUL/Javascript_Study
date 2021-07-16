@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<style>
+    div {
+        width: 100px; height: 100px;
+        border : 2px solid;
+        margin-bottom: 20px;
+    }
+
+    #box1 { transition-duration: 2s;} /* css3 모션 설정 */
+    #box3 { 
+        width: 300px;
+        height: 500px;
+        transition-duration: 3s;} /* css3 모션 설정 */
+</style>
+
+<body>
+    <h1>CSS Animation and JavaScript Animation</h1>
+    <hr>
+    <div id='box1'> css Animation </div>
+    <div id='box2'> javascript animation </div>
+    <div id='box3'> Testing </div>
+    <script>
+
+        var box1 = document.getElementById('box1');
+        var box2 = document.getElementById('box2');
+        var box3 = document.getElementById('box3');
+
+        // CSS3 Animation(Transition)
+        box1.onclick = function() {
+            this.style.marginLeft = '200px';
+        };
+
+        box2.onclick = function() {
+            $(this).animate({
+                marginLeft: '200px'
+            }, 2000);
+        };
+        box3.onclick = function() {
+            this.style.marginLeft = '300px';
+        };
+
+        // for(var number=2; number<9; number++) {
+        //     for(var a=1; a<=9; a++) {
+        //         document.write(number + " * " + a + " = " + (number * a) + '<br>');
+        //     }
+        // }
+        var hello = {
+            you : { function() {
+                console.log('fucked up');
+            }
+        }};
+        document.write(typeof hello);
+    </script>
+</body>
+</html>

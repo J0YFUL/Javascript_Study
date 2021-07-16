@@ -9,16 +9,30 @@
 <body>
     <label for="nick">nickname</label>
     <input type="text" id="nick">
+    <hr>
+    <ul>
+        <li onclick="alert('멍멍');">강아지</li>
+        <li>소</li>
+        <li>닭</li>
+        <li onclick="alert('냐아아아옹');">고양이</li>
+    </ul>
 
+    <ul>
+        <li id="doggy">강아지</li>
+    </ul>
     <script>
         var nick = document.getElementById('nick');
         nick.value = '별명을 입력하세요';
-
-        nick.onfocus = function() {
+    
+        nick.onfocus = function() { // 신기한 방식
             this.style.background = "orange";
             this.value = '';
         }
-    </script>
 
+        var dog = document.getElementById('doggy');
+        dog.onclick = function() {
+            alert('왈왈알!');
+        } 
+    </script>
 </body>
 </html>
