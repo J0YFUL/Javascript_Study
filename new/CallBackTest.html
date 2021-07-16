@@ -7,6 +7,63 @@
     <title>CallBack</title>
 </head>
 <body>
-    
+    <script>
+        function sum(a, b, callback) { // 콜백함수는 함수를 매개변수로 넣는듯
+            var result = a+b;
+
+            callback();
+            document.write(result);
+            return result; // 부모함수 sum이 끝나면 callback 함수가 시작됨.
+        }
+
+        var r = sum(10, 20, function() { // 자식함수 callback를 쓸 때 정의함.
+            alert('a + b를 더했습니다');
+        });         // 세미콜론 명시함. (필수는 아니지만 끝인것을 알려주기 위해 사용)
+
+        ////////////////////////////////////////////////////////////////////////////////
+
+        function isODD(num) {
+            var result = num % 2;
+
+            if(result == 0) {
+                document.write('<br>'+ num +'은 짝수입니다.<br>');
+            } else {
+                document.write('<br>'+ num +'은 홀수입니다.<br>');
+            }
+        }
+
+        isODD(30);
+        isODD(25);
+
+        ///////////////////////////////////////////////////////////////////////////////
+                        //배열과 객체 조합 - 초중요
+        var book = [
+            {
+                title : '채식주의자',
+                author : '한강',
+                price : 12000
+            },
+            {
+                title : '채식주의자',
+                author : '한강',
+                price : '12000'
+            }
+        ];
+
+        var car = ['sonata','avante','matiz'];
+        car[1] = 'sm5';
+
+        document.write(car.reverse());
+
+        ///////////////////
+
+        var person = {
+            firstName : '길동',
+            lastName : '홍',
+            country : 'Korea'
+        }
+
+        console.log(person.lastName+person.firstName +'의 고향은 '+person.country+ '입니다.');
+    </script>
 </body>
 </html>
