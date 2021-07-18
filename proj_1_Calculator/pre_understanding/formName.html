@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        label {
+            float: left;
+            width: 80px;
+        }
+        input,label {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <form name="frm">
+        <label for="myId">ID</label>
+        <input type="text" id="myId" name="myId"/>
+
+        <label for="pwd">password:</label>
+        <input type="password" id="pwd" name="pwd"/>
+
+        <input type="button" name="send" value="로그인">
+        <!-- 2. 부분 -->
+        <hr><br>
+        <input type="text" name="text"/>
+        <input type="button" onclick="put_text()" value="click"/>
+        <!--단순히 버튼을 눌렀을때 정해진 텍스트가 input-text 내부에 적힘.-->
+    </form>
+    <script>
+        // form 요소에 접근하는 방식
+        // 1. document.formName.typeName.속성(또는 메소드)
+        // 2. doucment.forms[formName][typeName].속성(또는 메소드)
+        
+        // 1의 방식
+        var frm = document.frm;  // form 객체 지정
+
+        var myId = frm.myId;
+        var pwd = frm.pwd;
+        var send_btn = frm.send;
+
+        send_btn.onclick = function() {
+            var newId = myId.value;
+            var newPwd = pwd.value;
+
+            // 빈값 검사
+            if(newId == '' || newPwd == '') {
+                alert('아이디 또는 비밀번호가 입력되지 않았습니다.');
+            } else {
+                alert(myId.value + '님 환영합니다!');
+            }
+        };
+
+        // 2의 방식, doucment.forms[formName][typeName].속성
+
+        function put_text() {
+            //form 객체 내의 name = 'text'인 입력 요소 지정
+            var frm2 = document.forms['frm']['text'];
+
+            // 입력요소에 값을 입력
+            frm2.value = '값을 입력';
+        }
+    </script>
+</body>
+</html>

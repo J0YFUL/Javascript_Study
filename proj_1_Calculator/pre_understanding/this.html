@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="gnb">
+        <li>click</li>
+        <li>second</li>
+        <li>third</li>
+    </ul>
+
+    <script>
+        // 문서 객체 선택
+        var gnb = document.getElementById('gnb');
+        var li = gnb.getElementsByTagName('li');
+
+        li[0].onclick = function() {
+            this.style.backgroundColor = 'red'; // 여기서 this는 li[0]
+        };
+    </script>
+</body>
+</html>

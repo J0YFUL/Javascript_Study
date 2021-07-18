@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkList</title>
+    <style>
+        #add-btn {
+            padding: 5px 10px;
+            border: 0;
+            background: black;
+            color: white;
+            border-radius: 5px;
+        }
+
+        #btn {
+            padding: 5px 10px;
+            border: 0;
+            background: blueviolet;
+            color: white;
+            border-radius: 5px;
+        }
+
+        ul {
+            padding: 0;
+            list-style-position: inside;
+        }
+
+        li {
+            border-bottom: 1px solid black;
+            padding: 10px ;
+        }
+
+        .active{ background:gray;}
+    </style>
+</head>
+<body>
+    <h1 id="title">To-do List mini</h1>
+
+    <input type="button" id="btn" onclick="addList()" value="목록 추가">
+    <button id="add-btn">목록 추가</button>
+
+    <ul id="list">
+        <li> 제목 1 </li>
+        <li> 제목 2 </li>
+        <li> 제목 3 </li>
+        <li> 제목 4 </li>
+    </ul>
+    <script>
+        var title = document.getElementById('title');
+        var btn = document.getElementById('add-btn');
+        var list = document.getElementById('list');
+        var li = list.getElementsByTagName('li'); // <-- 이 부분 중요함
+
+        // for(var i=0; i<li.length; i++) {
+        //     li[i].addEventListener('click', activeItem);
+        // }
+        // 위로 실행하면 버튼으로 목록 추가한다음에 목록 눌렀을때 반응이 안되므로 아래와 같이 수정
+        list.addEventListener('click',activeItem); // 이벤트 핸들러에서 콜백 함수 activeItem에 매개 변수 event를 전달함.
+
+        function activeItem(event) {
+
+            if(event.target.nodeName == 'LI') {     // nodeName은 반환되는 값이 대문자이기에 대문자로 비교해야함.
+                title.innerHTML = event.target.innerText;
+
+                for(var i=0; i< event.target.parentNode.children.length; i++)
+                event.target.parentNode.children[i].removeAttribute('class');
+            
+                event.target.setAttribute('class','active');
+            }
+        }
+
+        btn.addEventListener('click', function() {  // script 내부에서 html의 태그를 인스턴스로 불러와서 여기서 이벤트리스너를 작용하는 방법
+            var text = prompt('할 일 입력');
+            if(text !== null) {
+                console.log(text);
+                list.innerHTML += '<li> ' + text + ' </li>';      // <-- += 연산자로 해야 추가가 됨
+            }
+        });
+
+        function addList() {        // html상에서 태그내부에 onclick으로 지정하는 방법
+            var text = prompt('할 일 입력');
+            if(text !== null) {
+                console.log(text);
+                list.innerHTML += '<li> ' + text + ' </li>';      // <-- += 연산자로 해야 추가가 됨
+            }
+        }
+    </script>
+</body>
+</html>

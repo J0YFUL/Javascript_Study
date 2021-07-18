@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <title>Calculator</title>
+</head>
+<body>
+    <form name="cal">
+        <table>
+            <caption>계산기</caption>
+            <tr>
+                <th colspan="4"><input type="text" name="result" value="0"></th> <!-- th에 colspan은 파트를 몇개를 차지하는지를 보여주는 듯-->
+            </tr>
+            <tr>
+                <td><input type="button" value="7"></td>
+                <td><input type="button" value="8"></td>
+                <td><input type="button" value="9"></td>
+                <td><input type="button" value="+"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4"></td>
+                <td><input type="button" value="5"></td>
+                <td><input type="button" value="6"></td>
+                <td><input type="button" value="-"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1"></td>
+                <td><input type="button" value="2"></td>
+                <td><input type="button" value="3"></td>
+                <td><input type="button" value="*"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="0"></td> <!-- 여긴 2칸으로 했었는데 백스페이스 키를 한번 해봄-->
+                <td><input type="button" class='back' value="←"></td>  <!-- 이거 -->
+                <td><input type="button" value="%"></td>
+                <td><input type="button" value="/"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="button" class='cls_btn' value="clear"></td> 
+                <td colspan="2"><input type="button" class="result_btn" value="="></td>
+            </tr>
+        </table>
+    </form>
+
+    <script src="app.js"></script>
+
+    <!--
+    <script>
+        var inp = document.forms['cal'];
+        var input = inp.getElementsByTagName('input');
+        var cls_btn = document.getElementsByClassName('cls_btn')[0];
+        var result_btn = document.getElementsByClassName('result_btn')[0];
+        var back_btn = document.getElementsByClassName('back')[0];
+
+        for(var i=0; i<input.length; i++) {
+            if(input[i].value != '=' && input[i].value != 'clear' && input[i].value != '←') {
+                input[i].onclick = function() {
+                calc(this.value);
+                }
+            }
+        }
+
+        back_btn.onclick = function() {
+            try {
+                back();
+            } catch(err) {
+                var result = input['result'];
+                result.value = '입력 오류';
+            }
+        }
+
+        cls_btn.onclick = function() {
+            clr();
+        }
+        
+        result_btn.onclick = function() {
+            try {
+                my_result();
+            } catch(err) {
+                var result = input['result'];
+                result.value = '입력 오류';
+            }
+        }
+
+        function calc(value) {
+            if(inp['result'].value == 0) {
+                input['result'].value = '';
+            }
+
+            inp['result'].value += value;
+        }
+
+        function back() {
+            inp['result'].value = Math.floor(inp['result'].value / 10);  // <-- 10으로 나누면 소수점으로 계산되기 때문에 나머지를 버릴 수 있는 Math.floor()함수를 사용한다.
+        }
+
+        function clr() {
+            inp['result'].value = 0;
+        }
+
+        function my_result() {
+            var result = document.forms['cal']['result'];
+            var calc = eval(result.value);          // ★ eval()함수는 제공되는 함수로, 입력된 문자열을 그대로 명령어로 처리할 수 있게 합니다. 
+
+            inp['result'].value = calc;
+        }
+    </script>
+-->
+</body>
+</html>
