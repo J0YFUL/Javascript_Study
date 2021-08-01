@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+</head>
+<style>
+    #box {
+        border: 2px solid #666;
+        width: 300px;
+        height: 180px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    #box h1 {
+        text-align: center;
+    }
+</style>
+<body>
+    <div id='box'>
+        <h1>나이 계산기</h1>
+        <label for="age">출생한 연도를 입력하세요</label><br><br>
+        <input type="text" id="age" name="age" value="">
+        <input type="button" value="확인" onclick="getAge()">
+        <br><hr>
+        <div id="answer"></div>
+    </div>
+</body>
+<script>
+    var now_Year = new Date().getFullYear();
+    var answer = document.getElementById('answer');
+
+    function getAge() {
+        var birth = document.getElementById("age").value;
+        var age = now_Year - birth;
+        
+        answer.innerText = '당신의 나이는 만 ' + age + '세 입니다.';
+    }
+    
+</script>
+</html>
