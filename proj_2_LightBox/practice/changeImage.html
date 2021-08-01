@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="http://placehold.it/200x100/abc?text=img1" alt="err" name="img1" id="one" />
+    <img src="http://placehold.it/200x100/abc?text=img2" alt="err" name="img2" id="two" />
+    <img src="http://placehold.it/200x100/abc?text=img3" alt="err" name="img3" id="three" />
+    <div>
+        <button onclick="changeImg()">change image</button>
+    </div>
+
+    <script>
+
+        function changeImg() {
+            var i1 = document.getElementById("one");
+            var tag1 = i1.getAttribute("src");
+            
+            var i3 = document.getElementById("three");
+            var tag3 = i3.getAttribute("src");
+
+            i1.setAttribute('src', tag3);
+            i3.setAttribute('src', tag1);
+        }
+    </script>
+</body>
+</html>

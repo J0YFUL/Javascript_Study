@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Box</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Light Box</h1>
+        <img class="thumb" src="images/img01.jpg" alt="Error" width="150" height="150"/>
+        <img class="thumb" src="images/img02.jpg" alt="Error" width="150" height="150"/>
+        <img class="thumb" src="images/img03.jpg" alt="Error" width="150" height="150"/>
+    </header>
+
+    <div id="block"></div>
+
+    <div id="lightbox" class="">
+        <h1>미스터 삼순의 기묘한 모험</h1>
+        <p>나는 김삼순. 불혹의 23세, 어느날 갑자기 라이트 박스 안에 갖혀 나오지 못해버렸다. 말도 안되는 일이지만 어쩔 수 없다. 지금의 상황으로서는.. 슈슈슈슉...슈슈슈슉..슈슈슈슈슈슉..슈슈슉...슈슈슉<br><br></p>
+
+        <figure>
+            <img src="images/img01.jpg" alt="non-exist"  width="300" height="300"/>
+            <img src="images/img02.jpg" alt="non-exist" width="300" height="300" />
+            <img src="images/img03.jpg" alt="non-exist" width="300" height="300" />
+        </figure>
+
+        <div class="indicator">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+        </div>
+        <div class="btn-close">X</div>
+    </div>
+    <script src="./js/main.js"></script>
+</body>
+</html>
